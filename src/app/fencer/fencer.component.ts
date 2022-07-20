@@ -1,11 +1,17 @@
-import { Component, Input, OnInit } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit
+} from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 import { Fencer } from "../fencer";
 
 @Component({
   selector: "app-fencer",
   templateUrl: "./fencer.component.html",
-  styleUrls: ["./fencer.component.css"]
+  styleUrls: ["./fencer.component.css"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FencerComponent implements OnInit {
   @Input() param: "test";

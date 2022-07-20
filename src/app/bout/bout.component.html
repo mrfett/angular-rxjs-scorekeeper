@@ -2,6 +2,7 @@
 <div *ngIf="boutAction$ | async as bout">
   <h2>Time Left: {{bout.timeLeft}}</h2>
   <h2>status: {{bout.status}}</h2>
+  <button (click)="toggleStatus(bout)">Play/Pause</button>
   <app-fencer param="Fencer Test" [initialFencer]="bout.fencerA"></app-fencer>
   <app-fencer param="Fencer Test" [initialFencer]="bout.fencerB"></app-fencer>
 </div>

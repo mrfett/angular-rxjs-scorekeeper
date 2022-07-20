@@ -29,4 +29,11 @@ export class BoutComponent implements OnInit {
       fencerB: { ...this.defaultBout.fencerB, name: "Sam", id: 1 }
     });
   }
+
+  toggleStatus(currentBout: Bout): void {
+    console.log("Toggle Status...", currentBout);
+    const newStatus = currentBout.status === "paused" ? "active" : "paused";
+    const newBout = { ...currentBout, status: newStatus };
+    this.boutSubject.next(newBout);
+  }
 }
