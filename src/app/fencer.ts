@@ -1,7 +1,7 @@
 export class Fencer {
   id: number;
-  name?: string;
-  score: number;
+  name?: string = "Fencer";
+  score: number = 0;
   cards?: {
     yellow: number;
     red: number;

@@ -11,11 +11,11 @@ export class AppComponent {
   public fencerOne: Fencer = {
     id: <number>0,
     name: <string>"Fencer One",
-    score: <number>1
+    score: <number>0
   };
   public fencerTwo: Fencer = {
     id: <number>1,
     name: <string>"Fencer Two",
-    score: <number>3
+    score: <number>0
   };
 }

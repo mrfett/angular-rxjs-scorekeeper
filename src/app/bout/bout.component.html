@@ -1,0 +1,7 @@
+<h1>Bout</h1>
+<div *ngIf="boutAction$ | async as bout">
+  <h2>Time Left: {{bout.timeLeft}}</h2>
+  <h2>status: {{bout.status}}</h2>
+  <app-fencer param="Fencer Test" [initialFencer]="bout.fencerA"></app-fencer>
+  <app-fencer param="Fencer Test" [initialFencer]="bout.fencerB"></app-fencer>
+</div>
