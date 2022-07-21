@@ -1,8 +1,11 @@
-<h1>Bout</h1>
-<div *ngIf="boutAction$ | async as bout">
-  <h2>Time Left: {{bout.timeLeft}}</h2>
-  <h2>status: {{bout.status}}</h2>
-  <button (click)="toggleStatus(bout)">Play/Pause</button>
-  <app-fencer param="Fencer Test" [initialFencer]="bout.fencerA"></app-fencer>
-  <app-fencer param="Fencer Test" [initialFencer]="bout.fencerB"></app-fencer>
+<div class="bout" *ngIf="boutAction$ | async as bout">
+  <div class="fencers">
+    <app-fencer param="Fencer Test" [initialFencer]="bout.fencerA"></app-fencer>
+    <app-fencer param="Fencer Test" [initialFencer]="bout.fencerB"></app-fencer>
+  </div>
+  <button class="button" [ngClass]="bout.status" (click)="toggleStatus(bout)">
+    {{bout.timeLeft}}
+  </button>
+
+  <div>{{bout.fencerA.score}}</div>
 </div>

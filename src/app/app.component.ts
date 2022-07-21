@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { Fencer } from "./fencer";
 
 @Component({
-  selector: "app-root",
+  selector: ".app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"]
 })

@@ -31,7 +31,6 @@ export class FencerComponent implements OnInit {
   }
 
   incrementScore(fencer): void {
-    console.log("Updating fencer", fencer);
     this.fencerSubject.next({ ...fencer, score: fencer.score + 1 });
   }
 }

@@ -4,12 +4,12 @@ import {
   Input,
   OnInit
 } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, interval, timer } from "rxjs";
 import { Bout } from "../bout";
 // import { Fencer } from "../fencer";
 
 @Component({
-  selector: "app-bout",
+  selector: ".app-bout",
   templateUrl: "./bout.component.html",
   styleUrls: ["./bout.component.css"],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -19,6 +19,12 @@ export class BoutComponent implements OnInit {
 
   boutSubject = new BehaviorSubject<Bout>(this.defaultBout);
   boutAction$ = this.boutSubject.asObservable();
+
+  timer$ = interval(1000)
+    .pipe
+    // map((bout) => (bout.timeLeft = bout.timeLeft - 1))
+    // tap((bout: Bout) => console.log(bout))
+    ();
 
   constructor() {}
 
@@ -31,7 +37,6 @@ export class BoutComponent implements OnInit {
   }
 
   toggleStatus(currentBout: Bout): void {
-    console.log("Toggle Status...", currentBout);
     const newStatus = currentBout.status === "paused" ? "active" : "paused";
     const newBout = { ...currentBout, status: newStatus };
     this.boutSubject.next(newBout);
