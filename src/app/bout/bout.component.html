@@ -3,7 +3,7 @@
     <app-fencer param="Fencer Test" [initialFencer]="bout.fencerA"></app-fencer>
     <app-fencer param="Fencer Test" [initialFencer]="bout.fencerB"></app-fencer>
   </div>
-  <button class="button" [ngClass]="bout.status" (click)="toggleStatus(bout)">
+  <button class="button timer" [ngClass]="bout.status" (click)="toggleStatus(bout)">
     {{bout.timeLeft}}
   </button>
 

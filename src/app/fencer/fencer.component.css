@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: stretch;
   text-align: center;
+  height: 100%;
 }
 
 .button {

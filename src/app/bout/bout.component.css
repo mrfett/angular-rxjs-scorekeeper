@@ -15,22 +15,28 @@
   color: white;
   border-radius: clamp(0.5rem, 4vmin, 8rem);
   font-size: clamp(1rem, 10vmin, 4rem);
-  flex-basis: 25%;
-  flex-grow: 1;
-  flex-shrink: 1;
 }
 .button.active {
   background-color: green;
 }
 
 .fencers {
+  flex-basis: 50%;
+  flex-grow: 1;
   display: flex;
   flex-direction: row;
   align-items: stretch;
+  justify-content: stretch;
   gap: 1rem;
 }
 
 .fencers > * {
   flex-basis: 50%;
+  flex-shrink: 1;
+}
+
+.timer {
+  flex-basis: 25%;
+  flex-grow: 1;
   flex-shrink: 1;
 }
