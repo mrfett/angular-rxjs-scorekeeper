@@ -13,7 +13,7 @@ import { Fencer } from "../fencer";
   selector: ".app-bout",
   templateUrl: "./bout.component.html",
   styleUrls: ["./bout.component.css"],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BoutComponent implements OnInit {
   @Input() defaultBout: Bout = new Bout();
@@ -63,11 +63,14 @@ export class BoutComponent implements OnInit {
     this.boutSubject.next(updatedBout);
   }
 
-  doubleTouch(currentBout: Bout): void {
-    let newBout = {...currentBout};
-    newBout.fencers.forEach((fencer) => {
-      fencer.score++;
-    })
-    this.boutSubject.next(newBout);
+  doubleTouch = (): void => {
+    console.log("Double Touch Called.");
+    const updatedBout = {...this.boutSubject.getValue()};
+    updatedBout.fencers.map((fencer) => fencer.score++);
+    // let newBout = {...currentBout};
+    // newBout.fencers.map((fencer) => {
+    //   fencer.score++;
+    // })
+    this.boutSubject.next(updatedBout);
   }
 }

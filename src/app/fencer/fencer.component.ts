@@ -11,7 +11,7 @@ import { Fencer } from "../fencer";
   selector: "app-fencer",
   templateUrl: "./fencer.component.html",
   styleUrls: ["./fencer.component.css"],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FencerComponent implements OnInit {
   @Input() param: "test";

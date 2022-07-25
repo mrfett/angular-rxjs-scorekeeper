@@ -1,0 +1,14 @@
+.button {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 25%;
+    width: 100%;
+    transform: translateY(-50%);
+    border: 2px solid gray;
+    padding: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: clamp(0.5rem, 4vmin, 8rem);
+    font-size: clamp(.5rem, 5vmin, 2rem);
+}

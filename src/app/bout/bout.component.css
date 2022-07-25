@@ -35,6 +35,11 @@
   flex-shrink: 1;
 }
 
+.fencers > .app-double-touch {
+  position: relative;
+  flex-basis: 20%;
+}
+
 .timer {
   flex-basis: 25%;
   flex-grow: 1;
