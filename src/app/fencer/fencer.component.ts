@@ -17,9 +17,10 @@ export class FencerComponent implements OnInit {
   @Input() param: "test";
   @Input() initialFencer: Fencer = {
     id: 0,
-    name: "No Name",
+    fencerName: "No Name",
     score: 0
   };
+  @Input() incrementScore: (fencer: Fencer) => void;
 
   fencerSubject = new BehaviorSubject<Fencer>(this.initialFencer);
   fencerAction$ = this.fencerSubject.asObservable();

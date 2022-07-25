@@ -21,9 +21,9 @@ export class BoutComponent implements OnInit {
   boutSubject = new BehaviorSubject<Bout>(this.defaultBout);
   boutAction$ = this.boutSubject.asObservable();
 
-  currentBout$ = this.boutAction$.pipe(
-    tap(bout => console.log("Bout", bout))
-  ).subscribe();
+  // currentBout$ = this.boutAction$.pipe(
+  //   tap(bout => console.log("Bout", bout))
+  // ).subscribe();
 
   // timer$ = interval(1000)
   //   .pipe
@@ -34,9 +34,9 @@ export class BoutComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    // const fencerOne = {...this.defaultBout.fencers[0], name: "Testing One"};
+    // const fencerOne = {...this.defaultBout.fencers[0], fencerName: "Testing One"};
     const fencerOne = this.updateFencerName(this.defaultBout.fencers[0], "Fencer One");
-    const fencerTwo = this.updateFencerName(this.defaultBout.fencers[1], "Second Fencer")
+    const fencerTwo = this.updateFencerName(this.defaultBout.fencers[1], "Second One")
 
     this.boutSubject.next(
       {...this.defaultBout, fencers: [fencerOne, fencerTwo]}
@@ -50,12 +50,17 @@ export class BoutComponent implements OnInit {
   }
 
   updateFencerName(fencer: Fencer, newName: string): Fencer {
-    return {...fencer, name: newName};
+    return {...fencer, fencerName: newName};
   }
 
-  public incrementScore(fencer): void {
-    console.log({...this.currentBout$, timeLeft: 30});
-    // this.boutSubject.next(newBout);
+  public incrementScore = (fencerToUpdate:Fencer) => {
+    console.log("Increment Score Called.");
+    const currentBout = this.boutSubject.getValue();
+    let updatedBout = {...currentBout};
+    updatedBout.fencers.map((fencer) => {
+      fencer === fencerToUpdate ? fencer.score = fencer.score + 1 : fencer.score = fencer.score;
+    });
+    this.boutSubject.next(updatedBout);
   }
 
   doubleTouch(currentBout: Bout): void {

@@ -1,5 +1,5 @@
 <div class="fencer" *ngIf="fencerAction$ | async as fencer">
-  <h4>{{fencer.name}} Score</h4>
+  <h4>{{fencer.fencerName}} Score</h4>
   <button class="button" (click)="this.incrementScore(fencer)">
     {{fencer.score}}
   </button>
