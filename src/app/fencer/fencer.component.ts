@@ -30,7 +30,7 @@ export class FencerComponent implements OnInit {
     this.fencerSubject.next(this.initialFencer);
   }
 
-  incrementScore(fencer): void {
-    this.fencerSubject.next({ ...fencer, score: fencer.score + 1 });
-  }
+  // incrementScore(fencer): void {
+  //   this.fencerSubject.next({ ...fencer, score: fencer.score + 1 });
+  // }
 }

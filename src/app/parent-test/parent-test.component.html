@@ -1,0 +1,7 @@
+<p>parent-test works!</p>
+<p>Parent Text: {{things$ | async}}</p>
+<button (click)="changeThings('New text from parent')">Parent Action</button>
+<div class="app-child-test"
+    childText="{{things$ | async}}"
+    [childAction]="changeThings">
+</div>
