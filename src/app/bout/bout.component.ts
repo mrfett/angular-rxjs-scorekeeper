@@ -8,6 +8,7 @@ import { BehaviorSubject, interval, timer, Observable } from "rxjs";
 import {tap, map } from "rxjs/operators";
 import { Bout } from "../bout";
 import { Fencer } from "../fencer";
+import { WeaponTypesEnum } from "../WeaponTypes.enum";
 
 @Component({
   selector: ".app-bout",
@@ -21,15 +22,7 @@ export class BoutComponent implements OnInit {
   boutSubject = new BehaviorSubject<Bout>(this.defaultBout);
   boutAction$ = this.boutSubject.asObservable();
 
-  // currentBout$ = this.boutAction$.pipe(
-  //   tap(bout => console.log("Bout", bout))
-  // ).subscribe();
-
-  // timer$ = interval(1000)
-  //   .pipe
-  //   map((bout) => (bout.timeLeft = bout.timeLeft - 1))
-  //   tap((bout: Bout) => console.log(bout))
-  //   ();
+  public weaponTypes = Object.values(WeaponTypesEnum);
 
   constructor() {}
 
@@ -55,8 +48,7 @@ export class BoutComponent implements OnInit {
 
   public incrementScore = (fencerToUpdate:Fencer) => {
     console.log("Increment Score Called.");
-    const currentBout = this.boutSubject.getValue();
-    let updatedBout = {...currentBout};
+    let updatedBout = {...this.boutSubject.getValue()};
     updatedBout.fencers.map((fencer) => {
       fencer === fencerToUpdate ? fencer.score = fencer.score + 1 : fencer.score = fencer.score;
     });
@@ -67,10 +59,13 @@ export class BoutComponent implements OnInit {
     console.log("Double Touch Called.");
     const updatedBout = {...this.boutSubject.getValue()};
     updatedBout.fencers.map((fencer) => fencer.score++);
-    // let newBout = {...currentBout};
-    // newBout.fencers.map((fencer) => {
-    //   fencer.score++;
-    // })
+    this.boutSubject.next(updatedBout);
+  }
+
+  changeWeapon = (weapon:WeaponTypesEnum):void => {
+    console.log("Change Weapon Called.");
+    let updatedBout = {...this.boutSubject.getValue()};
+    updatedBout.weapon = weapon;
     this.boutSubject.next(updatedBout);
   }
 }

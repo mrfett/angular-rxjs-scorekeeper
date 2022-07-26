@@ -1,4 +1,5 @@
 <div class="bout" *ngIf="boutAction$ | async as bout">
+  <div class="app-weapon-select" [updateWeapon]="changeWeapon"></div>
   <div class="fencers">
     <app-fencer param="Fencer Test" [initialFencer]="bout.fencers[0]" [incrementScore]="incrementScore"></app-fencer>
     <div class="app-double-touch" *ngIf="bout.weapon === 'epee'" [doubleTouch]="doubleTouch"></div>
@@ -7,6 +8,4 @@
   <button *ngIf="bout.weapon !== 'saber'" class="button timer" [ngClass]="bout.status" (click)="toggleStatus(bout)">
     {{bout.timeLeft}}
   </button>
-
-  <div>{{bout.fencers[0].score}}</div>
 </div>

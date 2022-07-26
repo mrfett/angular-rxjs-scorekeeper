@@ -1,7 +1,8 @@
 import { Fencer } from "./fencer";
+import { WeaponTypesEnum } from "./WeaponTypes.enum";
 
 export class Bout {
-  weapon: weapon = weapon.epee;
+  weapon: WeaponTypesEnum = WeaponTypesEnum.epee;
   timeLeft: number = 3 * 60 * 1000;
   status: string = "paused";
   fencers: Fencer[] = [
@@ -10,10 +11,4 @@ export class Bout {
   ];
   fencerA: Fencer = new Fencer();
   fencerB: Fencer = new Fencer();
-}
-
-const enum weapon {
-  foil = "foil",
-  epee = "epee",
-  saber = "saber"
 }
