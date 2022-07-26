@@ -1,4 +1,16 @@
+.app-weapon-select {
+    padding: 2rem;
+}
+
 select,
 select option {
-    text-transform:capitalize
+    text-transform:capitalize;
+}
+
+select {
+    width: 100%;
+}
+
+label {
+    display: block;
 }

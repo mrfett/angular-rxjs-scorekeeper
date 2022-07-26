@@ -1,3 +1,4 @@
+<label for="weaponSelect">Weapon</label>
 <select #weaponSelect (change)="this.updateWeapon(weaponSelect.value)" >
-    <option class="weapon-option" *ngFor="let weapon of weaponTypes" [value]="weapon" >{{weapon}}</option>
+    <option class="weapon-option" *ngFor="let weapon of weaponTypes" [value]="weapon" [selected]="currentWeapon === weapon" >{{weapon}}</option>
 </select>
