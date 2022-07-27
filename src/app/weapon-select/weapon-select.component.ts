@@ -4,7 +4,7 @@ import { WeaponTypesEnum } from '../WeaponTypes.enum';
 @Component({
   selector: '.app-weapon-select',
   templateUrl: './weapon-select.component.html',
-  styleUrls: ['./weapon-select.component.css']
+  styleUrls: ['./weapon-select.component.scss']
 })
 export class WeaponSelectComponent implements OnInit {
 

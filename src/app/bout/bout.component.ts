@@ -13,7 +13,7 @@ import { WeaponTypesEnum } from "../WeaponTypes.enum";
 @Component({
   selector: ".app-bout",
   templateUrl: "./bout.component.html",
-  styleUrls: ["./bout.component.css"],
+  styleUrls: ["./bout.component.scss"],
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BoutComponent implements OnInit {

@@ -10,7 +10,7 @@ import { Fencer } from "../fencer";
 @Component({
   selector: "app-fencer",
   templateUrl: "./fencer.component.html",
-  styleUrls: ["./fencer.component.css"],
+  styleUrls: ["./fencer.component.scss"],
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FencerComponent implements OnInit {

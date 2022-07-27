@@ -4,7 +4,7 @@ import { Bout } from '../bout';
 @Component({
   selector: '.app-double-touch',
   templateUrl: './double-touch.component.html',
-  styleUrls: ['./double-touch.component.css'],
+  styleUrls: ['./double-touch.component.scss'],
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DoubleTouchComponent implements OnInit {
