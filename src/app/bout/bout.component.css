@@ -10,6 +10,7 @@
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 100;
   display:flex;
   width: clamp(25vmin, 50%, 20rem);
   padding: 1rem;
@@ -33,6 +34,7 @@
 }
 
 .fencers {
+  position: relative;
   flex-basis: 50%;
   flex-grow: 1;
   display: flex;
@@ -48,8 +50,11 @@
 }
 
 .fencers > .app-double-touch {
-  position: relative;
-  flex-basis: 20%;
+  position: absolute;
+  top: calc(50% + 2rem);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
 }
 
 .timer {
