@@ -1,6 +1,7 @@
 <div class="bout" *ngIf="boutAction$ | async as bout">
   <div class="bout-options">
     <div class="app-weapon-select" [updateWeapon]="changeWeapon" [currentWeapon]="bout.weapon"></div>
+    <a routerLink="/home" routerLinkActive="active" ariaCurrentWHenActive="page">Main Menu</a>
   </div>
   <div class="fencers">
     <app-fencer param="Fencer Test" [initialFencer]="bout.fencers[0]" [incrementScore]="incrementScore"></app-fencer>

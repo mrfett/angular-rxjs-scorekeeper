@@ -4,6 +4,7 @@ import {
   Input,
   OnInit
 } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { BehaviorSubject, interval, timer, Observable } from "rxjs";
 import {tap, map } from "rxjs/operators";
 import { Bout } from "../bout";
@@ -24,15 +25,20 @@ export class BoutComponent implements OnInit {
 
   public weaponTypes = Object.values(WeaponTypesEnum);
 
-  constructor() {}
+  // this._Activatedroute.paramMap.subscribe(params => this.changeWeapon(this.weaponTypes[params.get('weapon')]))
+
+  constructor(private _Activatedroute: ActivatedRoute) {}
 
   ngOnInit(): void {
     // const fencerOne = {...this.defaultBout.fencers[0], fencerName: "Testing One"};
     const fencerOne = this.updateFencerName(this.defaultBout.fencers[0], "Fencer One");
-    const fencerTwo = this.updateFencerName(this.defaultBout.fencers[1], "Second One")
+    const fencerTwo = this.updateFencerName(this.defaultBout.fencers[1], "Second One");
+
+    const initialWeapon = this._Activatedroute.snapshot.paramMap.get("weapon");
+    console.log("Initial Weapon: ", initialWeapon);
 
     this.boutSubject.next(
-      {...this.defaultBout, fencers: [fencerOne, fencerTwo]}
+      {...this.defaultBout, fencers: [fencerOne, fencerTwo], weapon: WeaponTypesEnum[this._Activatedroute.snapshot.paramMap.get("weapon")]}
     );
   }
 

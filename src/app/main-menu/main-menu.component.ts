@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WeaponTypesEnum } from '../WeaponTypes.enum';
 
 @Component({
   selector: 'app-main-menu',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-menu.component.css']
 })
 export class MainMenuComponent implements OnInit {
+
+  weaponTypes = WeaponTypesEnum;
 
   constructor() { }
 

@@ -6,8 +6,10 @@ import { MainMenuComponent } from "./app/main-menu/main-menu.component";
 import { BoutComponent } from './app/bout/bout.component';
 
 const routes = [
+  { path: 'home', component: MainMenuComponent},
   { path: '', component: MainMenuComponent },
-  { path: 'bout', component: BoutComponent }
+  { path: 'bout', component: BoutComponent },
+  { path: 'bout/:weapon', component: BoutComponent }
 ];
 
 @NgModule({
