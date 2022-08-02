@@ -1,8 +1,5 @@
 <ul class="app-actions">
-    <li>
-        <a routerLink="/bout/" routerLinkActive="active" ariaCurrentWHenActive="page">Bout</a>
-    </li>
     <li *ngFor="let weapon of weaponTypes | keyvalue">
-        <a [routerLink]="['/bout', weapon.value]" routerLinkActive="active" ariaCurrentWHenActive="page">{{weapon.value}} Bout</a>
+        <a [routerLink]="['/bout', weapon.value]" routerLinkActive="active" ariaCurrentWHenActive="page">New {{weapon.value}} Bout</a>
     </li>
 </ul>
