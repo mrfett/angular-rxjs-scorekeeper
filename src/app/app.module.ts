@@ -11,9 +11,10 @@ import { ChildTestComponent } from './child-test/child-test.component';
 import { WeaponSelectComponent } from './weapon-select/weapon-select.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { MainMenuComponent } from './main-menu/main-menu.component';
+import { TimerComponent } from "./timer/timer.component";
 
 @NgModule({
-  declarations: [AppComponent, TestComponent, BoutComponent, FencerComponent, DoubleTouchComponent, ParentTestComponent, ChildTestComponent, WeaponSelectComponent, MainMenuComponent],
+  declarations: [AppComponent, TestComponent, BoutComponent, FencerComponent, DoubleTouchComponent, ParentTestComponent, ChildTestComponent, WeaponSelectComponent, MainMenuComponent, TimerComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]

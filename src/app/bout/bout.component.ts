@@ -42,7 +42,8 @@ export class BoutComponent implements OnInit {
     );
   }
 
-  toggleStatus(currentBout: Bout): void {
+  toggleStatus = (): void => {
+    const currentBout = {...this.boutSubject.getValue()};
     const newStatus = currentBout.status === "paused" ? "active" : "paused";
     const newBout = { ...currentBout, status: newStatus };
     this.boutSubject.next(newBout);
