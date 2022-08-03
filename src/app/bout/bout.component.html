@@ -8,5 +8,5 @@
     <div class="app-double-touch" *ngIf="bout.weapon === 'epee'" [doubleTouch]="doubleTouch"></div>
     <app-fencer param="Fencer Test" [initialFencer]="bout.fencers[1]" [incrementScore]="incrementScore"></app-fencer>
   </div>
-  <div class="app-timer timer" *ngIf="bout.weapon !== 'saber'" [currentStatus]="bout.status" [currentTime]="bout.timeLeft" [toggleStatus]="toggleStatus"></div>
+  <div class="app-timer timer" *ngIf="bout.weapon !== 'saber'" [currentStatus]="bout.status" [currentTime]="this.convertTime(bout.timeLeft)" [toggleStatus]="toggleStatus"></div>
 </div>

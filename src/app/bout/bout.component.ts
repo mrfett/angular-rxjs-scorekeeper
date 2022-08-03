@@ -5,8 +5,8 @@ import {
   OnInit
 } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { BehaviorSubject, interval, timer, Observable } from "rxjs";
-import {tap, map } from "rxjs/operators";
+import { BehaviorSubject, interval, timer, Observable, Subscription } from "rxjs";
+import {tap, map, takeWhile } from "rxjs/operators";
 import { Bout } from "../bout";
 import { Fencer } from "../fencer";
 import { WeaponTypesEnum } from "../WeaponTypes.enum";
@@ -22,6 +22,16 @@ export class BoutComponent implements OnInit {
 
   boutSubject = new BehaviorSubject<Bout>(this.defaultBout);
   boutAction$ = this.boutSubject.asObservable();
+
+  countdown$ = timer(0, 10).pipe(
+    takeWhile(() => this.boutSubject.getValue().timeLeft > 0),
+    map(() => {
+      const newTime = this.boutSubject.getValue().timeLeft--;
+      return this.convertTime(newTime);
+    })
+  );
+
+  countdownSub: Subscription;
 
   public weaponTypes = Object.values(WeaponTypesEnum);
 
@@ -45,6 +55,7 @@ export class BoutComponent implements OnInit {
   toggleStatus = (): void => {
     const currentBout = {...this.boutSubject.getValue()};
     const newStatus = currentBout.status === "paused" ? "active" : "paused";
+    newStatus === "active" ? this.countdownSub = this.countdown$.subscribe() : this.countdownSub.unsubscribe();
     const newBout = { ...currentBout, status: newStatus };
     this.boutSubject.next(newBout);
   }
@@ -74,5 +85,19 @@ export class BoutComponent implements OnInit {
     let updatedBout = {...this.boutSubject.getValue()};
     updatedBout.weapon = weapon;
     this.boutSubject.next(updatedBout);
+  }
+
+  convertTime(totalTime) {
+    let minutesInt = ~~(totalTime / 100 / 60);
+    let secondsInt = ~~((totalTime / 100) % 60);
+    let millisecondsInt = ~~(totalTime % 100);
+    let milliseconds = String(millisecondsInt).padStart(2, "0");
+    let seconds = String(secondsInt).padStart(2, "0");
+
+    if (totalTime <= 5 * 100) {
+      return `${minutesInt}:${seconds}:${milliseconds}`;
+    } else {
+      return `${minutesInt}:${seconds}`;
+    }
   }
 }
