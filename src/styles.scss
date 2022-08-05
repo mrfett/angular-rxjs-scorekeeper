@@ -1,19 +1,24 @@
-@import "./app/styles/variables";
-@import "./app/styles/mixins";
+@import "variables";
+@import "mixins";
+@import "typography";
 
 :root {
+  // Colors
   --surface-base: #{$surface-base};
   --ink-base: #{$ink-base};
+
+  // Spacing
+  --spacing-default: #{$spacing-default};
+  --spacing-small: #{$spacing-small};
 }
 
 html,
 body,
-.app-root,
-.app-bout {
+.app-root {
     height: 100%;
     padding: 0;
     margin: 0;
     background-color: var(--surface-base);
     color: var(--ink-base);
-    @include default-font;
+    @extend %font-default;
 }

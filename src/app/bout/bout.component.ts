@@ -20,8 +20,18 @@ import { WeaponTypesEnum } from "../WeaponTypes.enum";
 export class BoutComponent implements OnInit {
   @Input() defaultBout: Bout = new Bout();
 
+  boutOptionsOpen:Boolean = false;
+
   boutSubject = new BehaviorSubject<Bout>(this.defaultBout);
   boutAction$ = this.boutSubject.asObservable();
+
+  fencerNames$ = this.boutAction$.pipe(
+    map(bout => bout.fencers.map(fencer => fencer.fencerName))
+  );
+
+  period$:Observable<number> = this.boutAction$.pipe(
+    map(bout => bout.period)
+  );
 
   countdown$ = timer(0, 10).pipe(
     takeWhile(() => this.boutSubject.getValue().timeLeft > 0),
@@ -41,11 +51,10 @@ export class BoutComponent implements OnInit {
 
   ngOnInit(): void {
     // const fencerOne = {...this.defaultBout.fencers[0], fencerName: "Testing One"};
-    const fencerOne = this.updateFencerName(this.defaultBout.fencers[0], "Fencer One");
-    const fencerTwo = this.updateFencerName(this.defaultBout.fencers[1], "Second One");
+    const fencerOne = this.updateFencerName(this.defaultBout.fencers[0], "John Smith");
+    const fencerTwo = this.updateFencerName(this.defaultBout.fencers[1], "Dan Anderson");
 
     const initialWeapon = this._Activatedroute.snapshot.paramMap.get("weapon");
-    console.log("Initial Weapon: ", initialWeapon);
 
     this.boutSubject.next(
       {...this.defaultBout, fencers: [fencerOne, fencerTwo], weapon: WeaponTypesEnum[this._Activatedroute.snapshot.paramMap.get("weapon")]}
@@ -57,6 +66,12 @@ export class BoutComponent implements OnInit {
     const newStatus = currentBout.status === "paused" ? "active" : "paused";
     newStatus === "active" ? this.countdownSub = this.countdown$.subscribe() : this.countdownSub.unsubscribe();
     const newBout = { ...currentBout, status: newStatus };
+    this.boutSubject.next(newBout);
+  }
+
+  updatePeriod = () => {
+    const newBout = {...this.boutSubject.getValue(), period: 2};
+    console.log("new period", newBout.period);
     this.boutSubject.next(newBout);
   }
 

@@ -1,12 +1,19 @@
+@import "variables";
+
+:host {
+  padding: var(--spacing-default);
+  flex-grow: 1;
+}
+
 .button {
     border: none;
     padding: 2rem;
     width: 100%;
     box-sizing: border-box;
-    background: blue;
+    background: $action-base;
     color: white;
     border-radius: clamp(0.5rem, 4vmin, 8rem);
-    font-size: clamp(1rem, 10vmin, 4rem);
+    font-size: clamp(4rem, 24vmin, 5rem);
     height: 100%;
   }
   .button.active {

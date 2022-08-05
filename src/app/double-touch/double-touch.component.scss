@@ -1,9 +1,14 @@
+:host {
+    text-align: center;
+}
+
 .button {
     border: 2px solid gray;
-    padding: 2rem;
-    max-width: 16rem;
-    min-height: 16rem;
+    padding: 0;
+    text-indent: -9000%;
     box-sizing: border-box;
-    border-radius: clamp(0.5rem, 4vmin, 8rem);
+    border-radius: 50%;
     font-size: clamp(.5rem, 3vmin, 2rem);
+    aspect-ratio: 1;
+    overflow: hidden;
 }

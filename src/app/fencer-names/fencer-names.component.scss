@@ -1,0 +1,30 @@
+:host {
+    position: relative;
+    background-color: var(--surface-base);
+    color: var(--ink-base);
+    padding: var(--spacing-default);
+}
+
+h2 {
+    margin: 0;
+    padding: var(--spacing-default) 0;
+    font-size: 2rem;
+    font-weight: 400;
+
+    &:first-child {
+        text-align: right;
+
+        &::after {
+            content: "Vs";
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px;
+            padding: var(--spacing-small);
+            background: forestgreen;
+            border-radius: 50%;
+        }
+    }
+}
