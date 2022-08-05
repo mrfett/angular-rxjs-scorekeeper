@@ -29,8 +29,21 @@ export class BoutComponent implements OnInit {
     map(bout => bout.fencers.map(fencer => fencer.fencerName))
   );
 
-  period$:Observable<number> = this.boutAction$.pipe(
-    map(bout => bout.period)
+  periodText$ = this.boutAction$.pipe(
+    map((bout) => {
+      console.log("Period", bout.period)
+      if(bout.period === 1) {
+        console.log("period 1 if");
+        return "1st Period";
+      } else if ( bout.period === 2) {
+        console.log("period 2 if");
+       return "2nd Period";
+      } else if (bout.period === 3) {
+        return "3rd Period";
+      } else {
+        return "Period Out-of-bounds";
+      }
+    })
   );
 
   countdown$ = timer(0, 10).pipe(
@@ -70,7 +83,8 @@ export class BoutComponent implements OnInit {
   }
 
   updatePeriod = () => {
-    const newBout = {...this.boutSubject.getValue(), period: 2};
+    const newBout = {...this.boutSubject.getValue()};
+    newBout.period++;
     console.log("new period", newBout.period);
     this.boutSubject.next(newBout);
   }
