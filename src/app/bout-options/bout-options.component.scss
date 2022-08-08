@@ -1,0 +1,19 @@
+@import "variables";
+
+:host {
+    position: absolute;
+    top: $spacing-default;
+    left: $spacing-default;
+    z-index: 100;
+    margin: 0;
+}
+
+.options-menu {
+    list-style: none;
+    margin: 0;
+    padding: $spacing-default;
+    background-color: $ink-base;
+    color: $surface-base;
+    min-width: 80vw;
+    box-shadow: 0 .5rem 1rem 0 rgba(0, 0, 0, 0.5);
+}

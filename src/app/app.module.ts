@@ -15,9 +15,10 @@ import { TimerComponent } from "./timer/timer.component";
 import { FencerNamesComponent } from './fencer-names/fencer-names.component';
 import { FencerScoresComponent } from './fencer-scores/fencer-scores.component';
 import { PeriodDisplayComponent } from './period-display/period-display.component';
+import { BoutOptionsComponent } from './bout-options/bout-options.component';
 
 @NgModule({
-  declarations: [AppComponent, TestComponent, BoutComponent, FencerComponent, DoubleTouchComponent, ParentTestComponent, ChildTestComponent, WeaponSelectComponent, MainMenuComponent, TimerComponent, FencerNamesComponent, FencerScoresComponent, PeriodDisplayComponent],
+  declarations: [AppComponent, TestComponent, BoutComponent, FencerComponent, DoubleTouchComponent, ParentTestComponent, ChildTestComponent, WeaponSelectComponent, MainMenuComponent, TimerComponent, FencerNamesComponent, FencerScoresComponent, PeriodDisplayComponent, BoutOptionsComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]

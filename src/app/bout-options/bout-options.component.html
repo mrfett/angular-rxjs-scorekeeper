@@ -1,0 +1,9 @@
+<button (click)="toggleMenu()">Toggle Options</button>
+<ul class="options-menu" *ngIf="menuOpen">
+    <li>
+        <div class="app-weapon-select" [updateWeapon]="changeWeapon" [currentWeapon]="bout.weapon"></div>
+    </li>
+    <li>
+        <a routerLink="/home" routerLinkActive="active" ariaCurrentWHenActive="page">Main Menu</a>
+    </li>
+</ul>

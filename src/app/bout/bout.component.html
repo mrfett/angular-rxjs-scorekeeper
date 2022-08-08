@@ -1,8 +1,5 @@
 <ng-container *ngIf="boutAction$ | async as bout">
-  <div class="bout-options" *ngIf="boutOptionsOpen">
-    <div class="app-weapon-select" [updateWeapon]="changeWeapon" [currentWeapon]="bout.weapon"></div>
-    <a routerLink="/home" routerLinkActive="active" ariaCurrentWHenActive="page">Main Menu</a>
-  </div>
+  <div class="app-bout-options"></div>
   <div class="app-fencer-names" [fencerNames]="fencerNames$ | async"></div>
   <div class="app-period-display" *ngIf="bout.weapon !== 'saber'" [periodText]="periodText$ | async"></div>
   <button (click)="updatePeriod()">Update Period</button>

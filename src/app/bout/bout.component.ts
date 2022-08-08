@@ -77,6 +77,7 @@ export class BoutComponent implements OnInit {
   toggleStatus = (): void => {
     const currentBout = {...this.boutSubject.getValue()};
     const newStatus = currentBout.status === "paused" ? "active" : "paused";
+    if (currentBout.timeLeft === 0 && newStatus === "active") currentBout.timeLeft = 1*60*100;
     newStatus === "active" ? this.countdownSub = this.countdown$.subscribe() : this.countdownSub.unsubscribe();
     const newBout = { ...currentBout, status: newStatus };
     this.boutSubject.next(newBout);
