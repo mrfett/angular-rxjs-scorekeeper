@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators';
 export class PeriodDisplayComponent implements OnInit {
 
   @Input() periodText:string;
+  @Input() updatePeriod: () => void;
 
   constructor() { }
 

@@ -1,8 +1,7 @@
 <ng-container *ngIf="boutAction$ | async as bout">
   <div class="app-bout-options"></div>
   <div class="app-fencer-names" [fencerNames]="fencerNames$ | async"></div>
-  <div class="app-period-display" *ngIf="bout.weapon !== 'saber'" [periodText]="periodText$ | async"></div>
-  <button (click)="updatePeriod()">Update Period</button>
+  <div class="app-period-display" *ngIf="bout.weapon !== 'saber'" [periodText]="periodText$ | async" [updatePeriod]="updatePeriod"></div>
   <div class="fencers">
     <app-fencer [initialFencer]="bout.fencers[0]" [incrementScore]="incrementScore"></app-fencer>
     <div class="app-double-touch" *ngIf="bout.weapon === 'epee'" [doubleTouch]="doubleTouch"></div>
