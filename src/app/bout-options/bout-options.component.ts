@@ -1,9 +1,24 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+import { reduce } from 'rxjs/operators';
 
 @Component({
   selector: '.app-bout-options',
   templateUrl: './bout-options.component.html',
-  styleUrls: ['./bout-options.component.scss']
+  styleUrls: ['./bout-options.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      // ...
+      state('void', style({
+        // opacity: 0,
+        position: 'absolute',
+        left: '-100vw'
+      })),
+      transition('void <=> *', [
+        animate('0.25s')
+      ])
+    ]),
+  ],
 })
 export class BoutOptionsComponent implements OnInit {
 

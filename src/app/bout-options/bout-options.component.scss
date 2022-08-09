@@ -17,13 +17,15 @@
     position: absolute;
     left: 0;
     top: 0;
+    box-sizing: border-box;
     height: 100vh;
     width: 100vw;
     list-style: none;
     margin: 0;
     padding: $spacing-default;
     padding-top: $spacing-x-large;
-    background-color: $ink-base;
+    background-color: rgba($ink-base, .75);
+    backdrop-filter: blur(0.5rem);
     color: $surface-base;
     min-width: 80vw;
     box-shadow: 0 .5rem 1rem 0 rgba(0, 0, 0, 0.5);

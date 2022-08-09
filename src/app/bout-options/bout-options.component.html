@@ -1,5 +1,5 @@
 <button class="bout-options-menu-toggle" (click)="toggleMenu()">Toggle Options</button>
-<ul class="options-menu" *ngIf="menuOpen">
+<ul [@fadeInOut] class="options-menu" *ngIf="menuOpen">
     <li>
         <div class="app-weapon-select" [updateWeapon]="changeWeapon" [currentWeapon]="bout.weapon"></div>
     </li>

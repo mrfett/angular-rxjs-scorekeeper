@@ -31,12 +31,10 @@ export class BoutComponent implements OnInit {
 
   periodText$ = this.boutAction$.pipe(
     map((bout) => {
-      console.log("Period", bout.period)
+
       if(bout.period === 1) {
-        console.log("period 1 if");
         return "1st Period";
       } else if ( bout.period === 2) {
-        console.log("period 2 if");
        return "2nd Period";
       } else if (bout.period === 3) {
         return "3rd Period";
@@ -86,7 +84,6 @@ export class BoutComponent implements OnInit {
   updatePeriod = () => {
     const newBout = {...this.boutSubject.getValue()};
     newBout.period++;
-    console.log("new period", newBout.period);
     this.boutSubject.next(newBout);
   }
 
@@ -95,7 +92,6 @@ export class BoutComponent implements OnInit {
   }
 
   public incrementScore = (fencerToUpdate:Fencer) => {
-    console.log("Increment Score Called.");
     let updatedBout = {...this.boutSubject.getValue()};
     updatedBout.fencers.map((fencer) => {
       fencer === fencerToUpdate ? fencer.score = fencer.score + 1 : fencer.score = fencer.score;
@@ -104,14 +100,12 @@ export class BoutComponent implements OnInit {
   }
 
   doubleTouch = (): void => {
-    console.log("Double Touch Called.");
     const updatedBout = {...this.boutSubject.getValue()};
     updatedBout.fencers.map((fencer) => fencer.score++);
     this.boutSubject.next(updatedBout);
   }
 
   changeWeapon = (weapon:WeaponTypesEnum):void => {
-    console.log("Change Weapon Called.");
     let updatedBout = {...this.boutSubject.getValue()};
     updatedBout.weapon = weapon;
     this.boutSubject.next(updatedBout);

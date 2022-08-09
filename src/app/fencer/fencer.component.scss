@@ -12,11 +12,12 @@
 }
 
 .button {
-  /* aspect-ratio: 1 / 1; */
-  flex-basis: 50%;
-  font-size: clamp(5rem, 32vmin, 6rem);
+  aspect-ratio: 1 / 1;
+  font-size: clamp(1rem, 16vmin, 6rem);
   border-radius: clamp(0.5rem, 5vmin, 4rem);
-  background-color: transparent;
+  // height: 100%;
+  width: 100%;
+  background-color: $ink-subtle;
   border: none;
   color: var(--surface-base);
 }
