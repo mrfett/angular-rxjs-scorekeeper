@@ -1,38 +1,84 @@
 :host {
+    --border-radius: var(--spacing-large);
+    --border-width: 4px;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: var(--color-surface-base);
     color: var(--color-ink-base);
-    padding: var(--spacing-default);
+    padding: 0;
     flex-grow: 1;
     flex-basis: 100%;
-    justify-content: space-around;
+    justify-content: stretch;
 }
 
 h2 {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin: 0;
-    padding: var(--spacing-default) 0;
+    padding: var(--spacing-default);
     font-size: 2rem;
     font-weight: 400;
     color: var(--color-accent-strong);
 
     &:first-child {
         text-align: right;
+        background-color: var(--color-surface-strong);
+        border-bottom: var(--border-width) solid var(--color-accent-base);
 
         &::after {
             content: "Vs";
             display: block;
+            aspect-ratio: 1/1;
             position: absolute;
-            top: 50%;
+            bottom: 0;
             left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 12px;
-            padding: var(--spacing-small);
-            background: var(--color-accent-strong);
+            transform: translate(-50%, 50%);
+            font-size: clamp(10px, 8vmin, 32px);
+            font-weight: 200;
+            padding: clamp(var(--spacing-small), 4vmin, var(--spacing-x-large));
+            background-color: var(--color-accent-base);
             color: var(--color-surface-base);
             border-radius: 50%;
+            box-shadow: 0 .125rem .5rem 0 rgba(0, 0, 0, 0.25);
+        }
+    }
+
+    &:last-child {
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: calc(var(--border-width) * -1);
+            // top: calc(var(--border-width) * -1);
+            bottom: 100%;
+            height: 3rem;
+            width: 3rem;
+            border-end-start-radius: var(--border-radius);
+            border: solid var(--color-accent-base);
+            border-width: 0 0 var(--border-width) var(--border-width);
+            box-shadow: calc(var(--border-radius) / 4 * -1) calc(var(--border-radius) / 4) 0 calc(var(--border-radius) / 4) var(--color-surface-base);
+            background-color: var(--color-surface-strong);
+        }
+
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            right: calc(var(--border-width) * -1);
+            // top: calc(var(--border-width) * -1);
+            top: calc(var(--border-width) * -1);
+            height: 3rem;
+            width: 3rem;
+            border-start-end-radius: var(--border-radius);
+            border: solid var(--color-accent-base);
+            border-width: var(--border-width) var(--border-width) 0 0;
+            box-shadow: calc(var(--border-radius) / 4) calc(var(--border-radius) / 4 * -1) 0 calc(var(--border-radius) / 4) var(--color-surface-strong);
+            background-color: var(--color-surface-base);
         }
     }
 }
