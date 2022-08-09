@@ -15,8 +15,13 @@
   --color-accent-strong: #{$color-accent-strong};
 
   // Spacing
+  --spacing-xx-large: #{$spacing-xx-large};
+  --spacing-x-large: #{$spacing-x-large};
+  --spacing-large: #{$spacing-large};
   --spacing-default: #{$spacing-default};
   --spacing-small: #{$spacing-small};
+  --spacing-x-small: #{$spacing-x-small};
+  --spacing-xx-small: #{$spacing-xx-small};
 }
 
 html,

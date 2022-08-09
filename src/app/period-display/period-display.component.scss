@@ -1,4 +1,9 @@
+:host {
+    --border-radius: var(--spacing-large);
+}
+
 button {
+    position: relative;
     display: block;
     width: 100%;
     text-align: center;
@@ -9,4 +14,34 @@ button {
     background-color: var(--color-accent-base);
     color: var(--color-surface-base);
     border: none;
+    border-radius: 0 var(--border-radius);
+    box-shadow: var(--border-radius) 0 0 0 var(--color-surface-base);
+
+    &::before,
+    &::after {
+        content: '';
+        display:block;
+        position: absolute;
+        height: var(--border-radius);
+        width: var(--border-radius);
+    }
+
+    &::before {
+        top:0;
+        left: 0;
+        background-color: var(--color-surface-base);
+        box-shadow: calc(var(--border-radius)/4*-1) calc(var(--border-radius)/4) 0 calc(var(--border-radius)/4) var(--color-accent-base);
+        border-end-start-radius: var(--border-radius);
+        transform: translateY(-100%);
+    }
+
+    &::after {
+        bottom: 0;
+        right: 0;
+        background-color: var(--color-ink-base);
+        box-shadow: calc(var(--border-radius)/4) calc(var(--border-radius)/4*-1) 0 calc(var(--border-radius)/4) var(--color-accent-base);
+        height: var(--border-radius);
+        border-start-end-radius: var(--border-radius);
+        transform: translateY(100%);
+    }
 }
