@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { reduce } from 'rxjs/operators';
+import { Bout } from '../bout';
+import { WeaponTypesEnum } from '../WeaponTypes.enum';
 
 @Component({
   selector: '.app-bout-options',
@@ -21,6 +23,9 @@ import { reduce } from 'rxjs/operators';
   ],
 })
 export class BoutOptionsComponent implements OnInit {
+
+  @Input() currentWeapon: WeaponTypesEnum = WeaponTypesEnum.foil;
+  @Input() updateWeapon: (weapon:WeaponTypesEnum) => void;
 
   menuOpen: boolean = false;
 

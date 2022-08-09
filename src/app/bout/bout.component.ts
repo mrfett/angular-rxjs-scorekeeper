@@ -31,7 +31,6 @@ export class BoutComponent implements OnInit {
 
   periodText$ = this.boutAction$.pipe(
     map((bout) => {
-
       if(bout.period === 1) {
         return "1st Period";
       } else if ( bout.period === 2) {

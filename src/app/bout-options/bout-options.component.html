@@ -1,7 +1,7 @@
 <button class="bout-options-menu-toggle" (click)="toggleMenu()">Toggle Options</button>
 <ul [@fadeInOut] class="options-menu" *ngIf="menuOpen">
     <li>
-        <div class="app-weapon-select" [updateWeapon]="changeWeapon" [currentWeapon]="bout.weapon"></div>
+        <div class="app-weapon-select" [updateWeapon]="updateWeapon" [currentWeapon]="currentWeapon"></div>
     </li>
     <li>
         <a routerLink="/home" routerLinkActive="active" ariaCurrentWHenActive="page">Main Menu</a>
