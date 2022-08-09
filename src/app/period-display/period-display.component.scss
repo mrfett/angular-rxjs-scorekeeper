@@ -6,6 +6,7 @@ button {
     font-size: 1rem;
     margin: 0;
     padding: var(--spacing-default);
-    background-color: green;
+    background-color: var(--color-accent-base);
     color: var(--color-surface-base);
+    border: none;
 }

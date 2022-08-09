@@ -17,7 +17,7 @@
   border-radius: clamp(0.5rem, 5vmin, 4rem);
   // height: 100%;
   width: 100%;
-  background-color: $ink-subtle;
+  background-color: var(--color-ink-subtle);
   border: none;
-  color: var(--surface-base);
+  color: var(--color-surface-base);
 }

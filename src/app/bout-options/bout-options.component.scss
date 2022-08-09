@@ -11,6 +11,22 @@
     position: relative;
     z-index: 100;
     margin:$spacing-default 0 0 $spacing-default;
+    text-indent: -400vw;
+    line-height: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+
+    &::after {
+        content: "menu";
+        @extend %material-icons;
+        color: var(--color-accent-base);
+        font-size: 2.25rem;
+        line-height: 1;
+        padding: var(--spacing-small);
+        display: block;
+        text-indent: 0;
+    }
 }
 
 .options-menu {
@@ -23,11 +39,15 @@
     list-style: none;
     margin: 0;
     padding: $spacing-default;
-    padding-top: $spacing-x-large;
-    background-color: rgba($ink-base, .75);
+    padding-top: $spacing-x-large * 2;
+    background-color: rgba($color-surface-base, .5);
     backdrop-filter: blur(0.5rem);
-    color: $surface-base;
+    color: var(--color-ink-base);
     min-width: 80vw;
     box-shadow: 0 .5rem 1rem 0 rgba(0, 0, 0, 0.5);
     z-index: 10;
+
+    & > * {
+        padding-bottom: 1rem;
+    }
 }

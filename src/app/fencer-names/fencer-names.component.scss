@@ -1,7 +1,7 @@
 :host {
     position: relative;
-    background-color: var(--surface-base);
-    color: var(--ink-base);
+    background-color: var(--color-surface-base);
+    color: var(--color-ink-base);
     padding: var(--spacing-default);
 }
 
@@ -10,6 +10,7 @@ h2 {
     padding: var(--spacing-default) 0;
     font-size: 2rem;
     font-weight: 400;
+    color: var(--color-accent-strong);
 
     &:first-child {
         text-align: right;
@@ -23,7 +24,8 @@ h2 {
             transform: translate(-50%, -50%);
             font-size: 12px;
             padding: var(--spacing-small);
-            background: forestgreen;
+            background: var(--color-accent-strong);
+            color: var(--color-surface-base);
             border-radius: 50%;
         }
     }

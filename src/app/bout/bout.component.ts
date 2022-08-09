@@ -82,7 +82,7 @@ export class BoutComponent implements OnInit {
 
   updatePeriod = () => {
     const newBout = {...this.boutSubject.getValue()};
-    newBout.period++;
+    newBout.period >= 3 ? newBout.period = 1 : newBout.period++;
     this.boutSubject.next(newBout);
   }
 

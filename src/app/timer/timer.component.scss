@@ -10,14 +10,14 @@
     padding: 2rem;
     width: 100%;
     box-sizing: border-box;
-    background: $action-base;
+    background: var(--color-action-base);
     color: white;
     border-radius: clamp(0.5rem, 4vmin, 8rem);
     font-size: clamp(4rem, 24vmin, 5rem);
     height: 100%;
   }
   .button.active {
-    background-color: green;
+    background-color: var(--color-accent-base);
   }
 
 .timer {

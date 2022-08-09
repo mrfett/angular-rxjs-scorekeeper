@@ -4,8 +4,15 @@
 
 :root {
   // Colors
-  --surface-base: #{$surface-base};
-  --ink-base: #{$ink-base};
+  --color-surface-base: #{$color-surface-base};
+  
+  --color-ink-base: #{$color-ink-base};
+  --color-ink-subtle: #{$color-ink-subtle};
+  
+  --color-action-base: #{$color-action-base};
+  
+  --color-accent-base: #{$color-accent-base};
+  --color-accent-strong: #{$color-accent-strong};
 
   // Spacing
   --spacing-default: #{$spacing-default};
