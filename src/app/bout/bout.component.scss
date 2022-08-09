@@ -23,7 +23,7 @@
 }
 
 .fencers {
-  padding: var(--spacing-default);
+  padding: var(--spacing-default) var(--spacing-default) 0;
   display: flex;
   flex-direction: row;
   position: relative;

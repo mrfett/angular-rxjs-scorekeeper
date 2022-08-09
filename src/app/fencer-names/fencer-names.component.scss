@@ -1,8 +1,14 @@
 :host {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: var(--color-surface-base);
     color: var(--color-ink-base);
     padding: var(--spacing-default);
+    flex-grow: 1;
+    flex-basis: 100%;
+    justify-content: space-around;
 }
 
 h2 {
