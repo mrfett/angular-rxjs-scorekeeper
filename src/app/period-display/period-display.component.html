@@ -1,1 +1,1 @@
-<button (click)="updatePeriod()">{{ periodText }}</button>
+<button [ngClass]="{'period-3' : periodText === '3rd Period'}" (click)="updatePeriod()">{{ periodText }}</button>

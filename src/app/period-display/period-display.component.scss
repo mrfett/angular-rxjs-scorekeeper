@@ -44,4 +44,16 @@ button {
         border-start-end-radius: var(--border-radius);
         transform: translateY(100%);
     }
+
+    &.period-3 {
+        background-color: var(--color-action-base);
+
+        &::before {
+            box-shadow: calc(var(--border-radius)/4*-1) calc(var(--border-radius)/4) 0 calc(var(--border-radius)/4) var(--color-action-base);
+        }
+
+        &::after {
+            box-shadow: calc(var(--border-radius)/4) calc(var(--border-radius)/4*-1) 0 calc(var(--border-radius)/4) var(--color-action-base);
+        }
+    }
 }
