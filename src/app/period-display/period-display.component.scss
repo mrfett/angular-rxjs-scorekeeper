@@ -10,6 +10,7 @@ button {
     font-weight: 200;
     font-size: 1rem;
     margin: 0;
+    margin-top: -1px;
     padding: var(--spacing-default);
     background-color: var(--color-accent-base);
     color: var(--color-surface-base);
@@ -20,7 +21,7 @@ button {
     &::before,
     &::after {
         content: '';
-        display:block;
+        display: block;
         position: absolute;
         height: var(--border-radius);
         width: var(--border-radius);
@@ -36,7 +37,8 @@ button {
     }
 
     &::after {
-        bottom: 0;
+        // bottom: 0;
+        top: calc(100% - var(--border-radius));
         right: 0;
         background-color: var(--color-ink-base);
         box-shadow: calc(var(--border-radius)/4) calc(var(--border-radius)/4*-1) 0 calc(var(--border-radius)/4) var(--color-accent-base);
